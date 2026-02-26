@@ -1,73 +1,48 @@
-# React + TypeScript + Vite
+# Employee Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, modern employee directory dashboard built to manage and view team members efficiently. It supports multiple views (Grid/List/Hierarchy), filtering/search, and incorporates a highly polished UI with floating sidebar navigation, responsive layout adaptations, and interactive components.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend Framework:** React 18+
+- **Build Tool:** Vite (for fast, optimized bundling)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS (utility-first CSS framework for rapid, responsive UI development)
+- **Icons:** `lucide-react` (clean, lightweight icon library)
 
-## React Compiler
+## 🛠️ Setup Instructions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+To get this project up and running on your local machine, follow these steps:
 
-## Expanding the ESLint configuration
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/sandipmaurya2611/frontend-practical-assignment.git
+   cd frontend-practical-assignment/dashboard
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. **Install dependencies:**
+   Make sure you have [Node.js](https://nodejs.org/) installed, then run:
+   ```bash
+   npm install
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+4. **View the application:**
+   Open your browser and navigate to the local URL provided by Vite (typically `http://localhost:5173`).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 💡 Assumptions Made
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+During the development of this assignment, the following assumptions and design decisions were made:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Data Source:** No external backend API was provided, so `mockEmployees` data is hardcoded to simulate the application state. It contains basic attributes like ID, Name, Role, Image URL, Department Icon, and Status Colors.
+2. **Functionality of UI Elements:** Visual elements like "Export", "Filter", "Add (+)", and the "Hierarchy" view are interactive placeholder buttons implemented to match the design specifications, but do not contain business logic for complex sub-menus or exporting files.
+3. **Pagination:** The pagination footer is built structurally to match the design requirements (with rows-per-page dropdowns and previous/next toggles) but currently acts as a cosmetic layout element since the full mock dataset is rendered directly.
+4. **Layout & Styling:**
+   - Designed mobile-first utilizing standard Tailwind breakpoints (`sm`, `md`, `lg`, `xl`).
+   - The desktop layout utilizes a uniquely styled "floating sidebar" design that snaps into an off-canvas drawer mode on smaller viewports.
+   - Profile images use placeholder links (e.g., Unsplash and Pravatar) to emulate varied employee avatars.
+5. **Sidebar Icons:** Where exact SVGs were not explicitly provided, the closest matching high-quality icons from the `lucide-react` set were utilized to maintain the premium feel.
